@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mukul Sinha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #aac1e0;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(90deg, #e4e0e0, #aac1e0);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        h1, h2 {
+            color: #121212;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #c1b50f;
+            outline: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+/* Slider Section */
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #0a0a0a;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: e4e0e0;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .skill-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            width: 40%;
+        }
+
+        .rating-value {
+            width: 40%;
+            text-align: right;
+            font-weight: bold;
+        }
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* space between image and text */
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            margin-left: 10px;
+            /* border-radius: 50%; */
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .text-content h1, .text-content h2, .text-content p {
+            margin: 5px 0;
+            color: #121212;
+        }
+        .left {
+            float: left;
+            margin-right: 10px;
+        }
+        .about-me {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            color: #121212;
+        }
+
+        .resume-nav {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .resume-nav a {
+            text-decoration: none;
+            color: #0f0f0f;
+            margin: 0 15px;
+            font-size: 1.2rem;
+        }
+
+        .resume-nav a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid #00aaff;
+            margin-top: 30px;
+            }
+
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease-out;
+        }
+
+        .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -30px;
+        top: 20;
+        width: 20px;
+        height: 20px;
+        background: #00aaff;
+        border-radius: 50%;
+        border: 3px solid #0c0c0c;
+        box-shadow: 0 0 0 3px #00aaff33;
+        }
+
+        .timeline-date {
+            min-width: 100px;
+            margin-right: 10px;
+            text-align: center;
+            color: #0a0a0a; /*#00aaf*/
+            font-weight: bold;
+            position: relative;
+            top: 5px;
+        }
+
+        .timeline-content {
+        background: #cedca9;
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        flex: 1;
+        }
+        .timeline-logo {
+        width: 60px; /* Adjust size of the logo */
+        height: 60px;
+        margin-right: 40px;
+        }
+        /* Animation trigger */
+        .timeline-item.visible {
+        opacity: 1;
+        transform: translateY(0);
+        }
+             
+</style>
+
+   
+   </style>
+</head>
+<body>
+    <header class="header">
+        <div class="profile-container">
+            <img src="C:\Users\11490\Desktop\Mukul_Misc\WhatsApp Image 2024-11-24 at 19.59.28_c188b3cd.jpg" alt="Mukul Sinha" class="profile-img">
+            <div class="text-content">
+                <h1>Mukul Sinha</h1>
+                <h2>AWARD-WINNING DATA ANALYTICS LEADER</h2>
+                <p>20+ Years | Data Strategy & Analytics | AI/ML | Cloud Architecture | BI & Automation</p>
+                <p>Mobile : +91-9873425207 ; e-mail : mukulsinha25@gmail.com</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/mukulsinha25/" target="_blank">Mukul Sinha</a></p>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Navigation -->
+        <div class="resume-nav">
+            <a href="#" onclick="showSection('about-me')">About Me</a>
+            <a href="#" onclick="showSection('professional-experience')">Professional Experience</a>
+            <!-- <a href="#" onclick="showSection('key-responsibilities')">Key Responsibilities</a> -->
+            <a href="#" onclick="showSection('projects')">Projects</a>
+            <a href="#" onclick="showSection('education')">Education</a>
+            <a href="#" onclick="showSection('resume')">Resume</a>
+        </div>
+
+        <!-- About Me Section -->
+        <div id="about-me" class="section content active">
+            <div class="about-me">
+                <div class="left">
+                    <h2>Objective</h2>
+                    <p>
+                        Award-Winning Data Analytics Leader with 20+ years of experience leading <strong>end-to-end data lifecycle management</strong>, <strong>enterprise data transformation</strong>, <strong>AI/ML-driven predictive modeling</strong>, and <strong>business intelligence</strong>. Skilled at <strong>scaling data functions</strong>, <strong>shaping analytics roadmaps</strong>, and <strong>enabling data-driven decision-making at the C-suite level</strong>. Demonstrated ability in <strong>increasing revenue and profitability</strong>, <strong>perfecting operations</strong>, and <strong>driving competitive advantage</strong> through data solutions and automation. <strong>Champion in leveraging AI, cloud, and automation to revolutionize business strategy.</strong>
+                    
+                    </p>
+
+                    <h2>Key Achievements</h2>
+                    <ul>
+                        <li><strong>Built enterprise BI & analytics functions</strong> at Tata Voltas and Jindal India, <strong>reducing report turnaround times by 60%</strong> and embedding analytics into strategic planning cycles.</li>
+                        <li><strong>Cut infrastructure and operational costs by 40%</strong> by migrating legacy platforms to cloud and <strong>automating 70% of manual workflows</strong>.</li>
+                        <li><strong>Enabled 10% revenue growth</strong> by leading predictive modeling initiatives, improving upselling strategies, and refining customer segmentation models.</li>
+                        <li><strong>Accelerated decision-making by 70%</strong> via real-time dashboards and <strong>AI-powered analytics pipelines</strong> integrated across finance, marketing, and supply chain functions.</li>
+                        <li><strong>Achieved 95% data accuracy</strong> by building advanced ETL frameworks and implementing scalable data governance policies aligned with ISO standards.</li>
+                        <li><strong>Spearheaded Generative AI adoption</strong>, launching a GPT-4o Mini-powered chatbot and invoice automation system, and unlocking new operational efficiencies.</li>
+                        <li><strong>Delivered 8x ROI</strong> on data initiatives by uncovering <strong>$2M in new revenue streams</strong> and perfecting marketing spend via machine learning insights.</li>
+                        <li><strong>Led and scaled data teams across 3 organizations</strong>, driving professional development, instituting best practices, and <strong>doubling analytics throughput</strong> with lean methodologies.</li>
+                        <li><strong>Standardized analytics delivery</strong> with a reusable KPI framework across business units, <strong>cutting project delivery time by 50%</strong>.</li>
+                        <li><strong>Recommended executive leadership on enterprise data strategy</strong>, resulting in board-level adoption of data-first decision frameworks and increased investment in analytics infrastructure.</li>
+                    </ul>
+                    </p>
+
+                    <h2>Data Strategy & AI leadership</h2>
+                    <ul>
+                        <li><strong>Enterprise Data Strategy & Governance:</strong> Championed data Lakehouse architecture, metadata management, and governance frameworks that <strong>aligned analytics initiatives with business priorities</strong> across multiple functions.</li>
+                        <li><strong>AI/ML Innovation at Scale:</strong> Designed and operationalized <strong>advanced ML models</strong>, <strong>LLM fine-tuning</strong>, and <strong>GPT-4o Mini-powered solutions</strong>, enabling <strong>AI-driven automation</strong> in finance, marketing, and operations.</li>
+                        <li><strong>Data Monetization & Product Analytics:</strong> Engineered <strong>customer segmentation</strong>, <strong>pricing strategies</strong>, and <strong>AI-powered product insights</strong> that <strong>unlocked new revenue streams</strong> and <strong>improved profitability</strong>.</li>
+                        <li><strong>Executive & Board-Level Engagement:</strong> Collaborated with C-suite to define enterprise data strategy, <strong>drive data-driven culture</strong>, and <strong>secure funding</strong> for strategic analytics initiatives.</li>
+                        <li><strong>Analytics Center of Excellence:</strong> Built and mentored <strong>high-performing data teams</strong>, standardized delivery frameworks, and <strong>instituted best practices</strong> to ensure <strong>repeatable, high-impact analytics execution</strong> across the org.</li>
+                    </ul>
+
+                    <h2>Skills</h2>
+                    <ul>
+                        <li><strong>Data Leadership:</strong> Cloud Data Architecture, Data Governance, Data Lakehouse, Generative AI, AI/ML Implementation, Big Data, Data Integration, Data Security, Data Quality Management, Data Strategy</li>
+                        <br>
+                        <li><strong>Business Intelligence:</strong> Power BI, Tableau, KPI-Driven Reporting, Dashboard Development, Self-Service BI, Predictive Analytics, Data Visualization, Data Modeling, Business Analytics, Data Warehousing</li>
+                        <br>
+                        <li><strong>Technical Expertise:</strong> Python, SQL, DAX, Power Query, Azure, ETL, Pipelines, Microsoft Power Automate, GPT-4 Mini, LLM, RAG, Prompt Engineering, Data Science, Cloud Computing, Apache Spark, Hadoop, Machine Learning Algorithms</li>
+                        <br>
+                        <li><strong>Strategic Collaboration:</strong> C-Suite Advisory, Stakeholder Engagement, Agile Delivery, Data-Driven Decision-Making, Cross-functional Leadership, Change Management, Executive Reporting, Strategic Planning</li>
+                        <br>
+                        <li><strong>Operational Excellence:</strong> Workflow Automation, Cost Optimization, Scalable Data Pipelines, JIRA, Process Optimization, Performance Metrics, Continuous Improvement, Lean Methodology, Resource Management</li>
+
+                    </ul>
+                       
+                
+                </p>
+                <br>
+                    <h2></h2>
+                    <div class="skill-container">
+                        <div class="skill-name">Data Leadership</div>
+                        <input type="range" class="slider" value="80" max="100">
+                        <div class="rating-value">8.5</div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-name">Business Intelligence</div>
+                        <input type="range" class="slider" value="80" max="100">
+                        <div class="rating-value">7</div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-name">Technical Expertise</div>
+                        <input type="range" class="slider" value="90" max="100">
+                        <div class="rating-value">8</div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-name">Strategic Collaboration</div>
+                        <input type="range" class="slider" value="85" max="100">
+                        <div class="rating-value">7.5</div>
+                    </div>
+                    <div class="skill-container">
+                        <div class="skill-name">Operational Excellence</div>
+                        <input type="range" class="slider" value="75" max="100">
+                        <div class="rating-value">8.5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience Section -->
+<div id="professional-experience" class="section content">
+            <!-- <h2>Professional Experience</h2>
+            <ul>
+                <li><strong>Deputy General Manager - Analytics</strong> - Jindal India | March 2024-Present</li>
+                <li><strong>Manager - Analytics & Data Science</strong> - TATA Voltas | September 2022 – February 2024</li>
+                <li><strong>Assistant General Manager - Analytics</strong> - HT Media | March 2019 – September 2022</li>
+                <li><strong>Manager - Marketing & Client Insights</strong> - Concentrix | December 2017 – February 2019)</li>
+                <li><strong>Manager - Analytics</strong> - Tolexo India | April 2015 – April 2017 </li>
+                <li><strong>Deputy Manager - Analytics</strong> - Encore Capital Group | August 2010 – February 2015 2022</li>
+                <li><strong>Business Analyst</strong> - Genpact India | June 2005 – July 2010 2022</li>
+             </ul> -->
+<!-- Roadmap Animated -->
+<h2>Professional Experience Roadmap</h2>
+<div class="timeline">
+  
+  <div class="timeline-item">
+    <div class="timeline-date">2024 – Present</div>
+    <div class="timeline-content">
+      <strong>Deputy General Manager - Analytics</strong><br>
+      Jindal India
+      <!-- <img src="C:\Users\11490\Desktop\Jindal_Logo.png" alt="Organization Logo" class="timeline-logo">   -->
+    </div>
+  </div>
+  
+  <div class="timeline-item">
+    <div class="timeline-date">2022 – 2024</div>
+    <div class="timeline-content">
+      <strong>Manager - Analytics & Data Science</strong><br>
+      TATA Voltas
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2019 – 2022</div>
+    <div class="timeline-content">
+      <strong>Assistant General Manager - Analytics</strong><br>
+      HT Media
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2017 – 2019</div>
+    <div class="timeline-content">
+      <strong>Manager - Marketing & Client Insights</strong><br>
+      Concentrix
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2015 – 2017</div>
+    <div class="timeline-content">
+      <strong>Manager - Analytics</strong><br>
+      Tolexo India
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2010 – 2015</div>
+    <div class="timeline-content">
+      <strong>Deputy Manager - Analytics</strong><br>
+      Encore Capital Group
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-date">2005 – 2010</div>
+    <div class="timeline-content">
+      <strong>Business Analyst</strong><br>
+      Genpact India
+    </div>
+  </div>
+<!-- Detailed Prefessional Experience               -->
+<!-- <div id="key-responsibilities" class="section content" style="display: none;"> -->
+    <h2>Professional Experience - Key Responsibilities</h2>
+    <ul>
+       <h3>Deputy General Manager - Analytics, Jindal India</h3>
+       <p><em>(March 2024 – Present)</em></p>
+       <ul>
+           <li><strong>Architected a strategic BI roadmap</strong>, enhancing decision-making and improving reporting efficiency by <strong>80%</strong>.</li>
+           <li><strong>Engineered a cloud-based data warehouse</strong> with ETL, data modeling, and reporting for 20+ stakeholders.</li>
+           <li><strong>Pioneered ML framework enhancements</strong>, improving efficiency by <strong>25%</strong> and reducing processing time by <strong>90%</strong>.</li>
+           <li><strong>Designed high-performance ETL components</strong>, achieving <strong>98% data accuracy</strong> under strict compliance.</li>
+           <li><strong>Implemented incremental load strategies</strong>, reducing resource usage by <strong>40%</strong> and improving resilience.</li>
+           <li><strong>Operationalized 10+ data pipelines</strong> in collaboration with Data Science teams, ensuring reliability and execution.</li>
+           <li><strong>Crafted data lineage documentation and catalogues</strong>, improving traceability and audit readiness.</li>
+           <li><strong>Delivered 50+ Power BI reports</strong>, boosting visualization impact and achieving <strong>20% efficiency gains</strong>.</li>
+           <li><strong>Elevated data accuracy by 20%</strong> through data governance initiatives aligned with the <strong>5 Vs of data quality</strong>.</li>
+           <li><strong>Boosted executive decision-making by 80%</strong> through strategic collaboration with C-suite leaders.</li>
+           <li><strong>Redefined workflow efficiency by 25%</strong> via engagement with external data partners and tech teams.</li>
+           <li><strong>Built an AI-powered invoice processing system</strong> using Azure AI, Power Automate, SharePoint, and Power BI.</li>
+           <li><strong>Developed a Generative AI chatbot</strong> using <strong>GPT-4o Mini</strong>, integrating LLMs into a Python-Azure pipeline.</li>
+       </ul>
+       
+       <h3>Manager - Analytics & Data Science, TATA Voltas</h3>
+       <p><em>(September 2022 – February 2024)</em></p>
+       <ul>
+           <li><strong>Accelerated decision-making by 60%</strong> by designing unified Data Lakes for real-time analytics.</li>
+           <li><strong>Boosted CLV and repeat purchases by 25%</strong> through development of a robust Customer Data Platform.</li>
+           <li><strong>Enabled 90% faster decisions</strong> using interactive Power BI dashboards and real-time insights.</li>
+           <li><strong>Deployed 20+ business-critical KPIs</strong> aligning with strategic goals and technical specs.</li>
+           <li><strong>Reduced data errors by 80%</strong> through innovative cleansing processes that improved system performance.</li>
+           <li><strong>Drove a 10% revenue increase</strong> by leading predictive modeling and refining data pipelines.</li>
+           <li><strong>Directed a team of 4</strong>, enforcing best practices and delivering high-quality data solutions.</li>
+           <li><strong>Streamlined project management in JIRA</strong> using custom dashboards, sprints, and reporting tools.</li>
+           <li><strong>Partnered with vendors</strong> to define and execute transformation initiatives and resolve project challenges.</li>
+       </ul>
+       
+       <h3>Assistant General Manager - Analytics, HT Media</h3>
+       <p><em>(March 2019 – September 2022)</em></p>
+       <ul>
+           <li><strong>Generated INR 13M revenue</strong> via customer segmentation and advanced analytics.</li>
+           <li><strong>Launched a COVID-era business line</strong> with a <strong>47% profit margin</strong> in its first year.</li>
+           <li><strong>Enhanced campaign performance by 20%</strong> with BI dashboards and time-series sentiment analysis.</li>
+           <li><strong>Cut operational costs by 15%</strong> by renegotiating contracts and optimizing processes.</li>
+           <li><strong>Unified workflows and automated systems</strong>, increasing profitability by <strong>10%</strong> and improving efficiency by <strong>20%</strong>.</li>
+           <li><strong>Upskilled teams with BI training</strong>, reducing reporting time by <strong>60%</strong> and fostering a data-driven culture.</li>
+       </ul>
+       
+       <h3>Manager - Marketing & Client Insights, Concentrix</h3>
+       <p><em>(December 2017 – February 2019)</em></p>
+       <ul>
+           <li><strong>Generated $1M in revenue</strong> by refining key business performance metrics.</li>
+           <li><strong>Increased market share by 10%</strong> through competitive analysis and strategic research.</li>
+           <li><strong>Improved operational efficiency by 8%</strong> by integrating industry trends into marketing strategies.</li>
+       </ul>
+       <h3><strong>Manager - Analytics</strong> - Tolexo India | April 2015 – April 2017 </h3>
+       <h3><strong>Deputy Manager - Analytics</strong> - Encore Capital Group | August 2010 – February 2015</h3>
+       <h3><strong>Business Analyst</strong> - Genpact India | June 2005 – July 2010</h3>
+    
+    </ul>
+</div>
+</div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const items = document.querySelectorAll('.timeline-item');
+    
+      function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top <= window.innerHeight - 100;
+      }
+    
+      function reveal() {
+        items.forEach(item => {
+          if (isInViewport(item)) {
+            item.classList.add('visible');
+          }
+        });
+      }
+    
+      window.addEventListener('scroll', reveal);
+      reveal(); // trigger on initial load
+    });
+    </script>
+     </div>
+    </div>
+
+
+        <!-- Projects Section -->
+        <div id="projects" class="section content">
+            <h2>Projects</h2>
+            <ul>
+                <li><strong>Developed an AI-powered chatbot</strong> that integrates <strong>SQL Server</strong>, <strong>Python</strong>, and <strong>GPT-4.0 mini</strong> language model, enabling <strong>Natural Language Processing (NLP)</strong> for intuitive querying and analysis of structured data. <em>Technical stack: SQL Server, Python, GPT-4.0 Mini, NLP</em></li>
+                <br>
+                <li><strong>Automated invoice processing workflows</strong> by leveraging <strong>Azure AI</strong> for intelligent invoice data extraction. <em>Technical stack: Azure AI, Power Automate, SharePoint</em></li>
+                <br>
+                <li><strong>Architected advanced Power BI reports</strong> with interactive dashboards, reducing reporting time by <strong>70%</strong> and improving insights. <em>Technical stack: Power BI, DAX, M Language</em></li>
+            </ul>
+        </div>
+
+        <!-- Education Section -->
+        <div id="education" class="section content">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Applied Generative Artificial Intelligence</strong> - Purdue University | 2025</li>
+                <br>
+                <li><strong>MBA Data Analytics</strong> - NIBM | 2015-2017</li>
+            </ul>
+        </div>
+
+        <!-- Resume Section -->
+        <div id="resume" class="section content">
+            <h2>Resume</h2>
+            <p>You can download my full resume here: <a href="C:\Users\11490\Documents\MS_Data\Mukul_Sinha_Apr.pdf" target="_blank">Download Resume</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Show Section based on navigation click
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => section.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
